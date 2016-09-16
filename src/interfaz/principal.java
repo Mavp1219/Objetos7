@@ -17,9 +17,11 @@ public class principal extends javax.swing.JFrame {
     /**
      * Creates new form principal
      */
-   Hora H, Hora2;
+    Hora H, Hora2;
+
     public principal() {
         initComponents();
+        txthora1.requestFocusInWindow();
     }
 
     /**
@@ -65,7 +67,7 @@ public class principal extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 210, 40));
 
         jLabel2.setText("Datos 2° Hora:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 80, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 90, 30));
         jPanel1.add(txthora1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 50, 30));
 
         jLabel3.setText("Hora:");
@@ -98,7 +100,7 @@ public class principal extends javax.swing.JFrame {
         jPanel1.add(txtsegundos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 50, 30));
 
         jLabel10.setText("Datos 1° Hora:");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 44, 80, 30));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 44, 90, 30));
 
         cmdcomparar.setText("Comparar");
         cmdcomparar.addActionListener(new java.awt.event.ActionListener() {
@@ -146,75 +148,160 @@ public class principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdfijarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdfijarActionPerformed
-        if (txthora1.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Digite la Hora #1", "error", JOptionPane.ERROR_MESSAGE);
+        try {
+            if (txthora1.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Digite la Hora #1", "error", JOptionPane.ERROR_MESSAGE);
+                txthora1.requestFocusInWindow();
+            } else if (txtminuto1.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Digite los minutos de la hora #1", "error", JOptionPane.ERROR_MESSAGE);
+                txtminuto1.requestFocusInWindow();
+            } else if (txtsegundo1.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Digite los segundos de la hora #1", "error", JOptionPane.ERROR_MESSAGE);
+                txtsegundo1.requestFocusInWindow();
+            } else if (txthora2.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Digite la Hora #2", "error", JOptionPane.ERROR_MESSAGE);
+                txthora2.requestFocusInWindow();
+            } else if (txtminuto2.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Digite los minutos de la hora #2", "error", JOptionPane.ERROR_MESSAGE);
+                txtminuto2.requestFocusInWindow();
+            } else if (txtsegundos2.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Digite los segundos de la hora #2", "error", JOptionPane.ERROR_MESSAGE);
+                txtsegundos2.requestFocusInWindow();
+            } else {
+                int h1, m1, s1, h2, m2, s2;
+                h1 = Integer.parseInt(txthora1.getText());
+                m1 = Integer.parseInt(txtminuto1.getText());
+                s1 = Integer.parseInt(txtsegundo1.getText());
+                h2 = Integer.parseInt(txthora2.getText());
+                m2 = Integer.parseInt(txtminuto2.getText());
+                s2 = Integer.parseInt(txtsegundos2.getText());
+                H = new Hora(h1, m1, s1);
+                Hora2 = new Hora(h2, m2, s2);
+                JOptionPane.showMessageDialog(this, "Horas establecidas");
+                txthora1.setEditable(false);
+                txthora2.setEditable(false);
+                txtminuto1.setEditable(false);
+                txtsegundo1.setEditable(false);
+                txtminuto2.setEditable(false);
+                txtsegundos2.setEditable(false);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Error");
             txthora1.requestFocusInWindow();
-        } else if (txtminuto1.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Digite los minutos de la hora #1", "error", JOptionPane.ERROR_MESSAGE);
-            txtminuto1.requestFocusInWindow();
-        } else if (txtsegundo1.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Digite los segundos de la hora #1", "error", JOptionPane.ERROR_MESSAGE);
-            txtsegundo1.requestFocusInWindow();
-        } else if (txthora2.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Digite la Hora #2", "error", JOptionPane.ERROR_MESSAGE);
-            txthora2.requestFocusInWindow();
-        } else if (txtminuto2.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Digite los minutos de la hora #2", "error", JOptionPane.ERROR_MESSAGE);
-            txtminuto2.requestFocusInWindow();
-        } else if (txtsegundos2.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Digite los segundos de la hora #2", "error", JOptionPane.ERROR_MESSAGE);
-            txtsegundos2.requestFocusInWindow();
-        }else {
-            int h1, m1, s1, h2, m2, s2;
-            h1 = Integer.parseInt(txthora1.getText());
-            m1 = Integer.parseInt(txtminuto1.getText());
-            s1 = Integer.parseInt(txtsegundo1.getText());
-            h2 = Integer.parseInt(txthora2.getText());
-            m2 = Integer.parseInt(txtminuto2.getText());
-            s2 = Integer.parseInt(txtsegundos2.getText());
-            H = new Hora(h1, m1, s1);
-            Hora2 = new Hora(h2, m2, s2);
-            JOptionPane.showMessageDialog(this, "Horas establecidas");
+            txthora1.setText("");
+            txthora2.setText("");
+            txtminuto1.setText("");
+            txtsegundo1.setText("");
+            txtminuto2.setText("");
+            txtsegundos2.setText("");
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(this, "Error");
+            txthora1.setText("");
+            txthora2.setText("");
+            txtminuto1.setText("");
+            txtsegundo1.setText("");
+            txtminuto2.setText("");
+            txtsegundos2.setText("");
+            txthora1.requestFocusInWindow();
         }
     }//GEN-LAST:event_cmdfijarActionPerformed
 
     private void cmdcompararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdcompararActionPerformed
-       String ress;
-        ress = H.CompararHoras(Hora2);
-        JOptionPane.showMessageDialog(this, ress);
+        try {
+            String ress;
+            ress = H.CompararHoras(Hora2);
+            JOptionPane.showMessageDialog(this, ress);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Error");
+            txthora1.requestFocusInWindow();
+            txthora1.setText("");
+            txthora2.setText("");
+            txtminuto1.setText("");
+            txtsegundo1.setText("");
+            txtminuto2.setText("");
+            txtsegundos2.setText("");
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(this, "Error");
+            txthora1.requestFocusInWindow();
+            txthora1.setText("");
+            txthora2.setText("");
+            txtminuto1.setText("");
+            txtsegundo1.setText("");
+            txtminuto2.setText("");
+            txtsegundos2.setText("");
+        }
     }//GEN-LAST:event_cmdcompararActionPerformed
 
     private void cmdmostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdmostrarActionPerformed
-       String Hora1, Hora3;
-        Hora1 = H.MostrarHora();
-        Hora3 = Hora2.MostrarHora();
-        JOptionPane.showMessageDialog(this,"La primera hora es: "+Hora1+"\nLa segunda hora es: "+Hora3);
+        try {
+            String Hora1, Hora3;
+            Hora1 = H.MostrarHora();
+            Hora3 = Hora2.MostrarHora();
+            JOptionPane.showMessageDialog(this, "La primera hora es: " + Hora1 + "\nLa segunda hora es: " + Hora3);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Error");
+            txthora1.requestFocusInWindow();
+            txthora1.setText("");
+            txthora2.setText("");
+            txtminuto1.setText("");
+            txtsegundo1.setText("");
+            txtminuto2.setText("");
+            txtsegundos2.setText("");
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(this, "Error");
+            txthora1.setText("");
+            txthora2.setText("");
+            txtminuto1.setText("");
+            txtsegundo1.setText("");
+            txtminuto2.setText("");
+            txtsegundos2.setText("");
+            txthora1.requestFocusInWindow();
+        }
     }//GEN-LAST:event_cmdmostrarActionPerformed
 
     private void cmdvalidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdvalidarActionPerformed
-      String Hora1, Hora3;
-        Hora1 = H.ValidarHoras();
-        Hora3= Hora2.ValidarHoras();
-        JOptionPane.showMessageDialog(this, "La Parimera hora es:"+ Hora1+"\nLa seguda hora es:" +Hora3);
+        try {
+            String Hora1, Hora3;
+            Hora1 = H.ValidarHoras();
+            Hora3 = Hora2.ValidarHoras();
+            JOptionPane.showMessageDialog(this, "La Parimera hora es:" + Hora1 + "\nLa seguda hora es:" + Hora3);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Error");
+            txthora1.requestFocusInWindow();
+            txthora1.setText("");
+            txthora2.setText("");
+            txtminuto1.setText("");
+            txtsegundo1.setText("");
+            txtminuto2.setText("");
+            txtsegundos2.setText("");
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(this, "Error");
+            txthora1.requestFocusInWindow();
+            txthora1.setText("");
+            txthora2.setText("");
+            txtminuto1.setText("");
+            txtsegundo1.setText("");
+            txtminuto2.setText("");
+            txtsegundos2.setText("");
+        }
     }//GEN-LAST:event_cmdvalidarActionPerformed
 
     private void cmdlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdlimpiarActionPerformed
-       txthora1.setText("");
-       txthora2.setText("");
-       txtminuto1.setText("");
-       txtsegundo1.setText("");
-       txtminuto2.setText("");
-       txtsegundos2.setText("");
-       txthora1.setEditable(true);
-       txthora2.setEditable(true);
-       txtminuto1.setEditable(true);
-       txtsegundo1.setEditable(true);
-       txtminuto2.setEditable(true);
-       txtsegundos2.setEditable(true);
-       txthora1.requestFocusInWindow();
+        txthora1.setText("");
+        txthora2.setText("");
+        txtminuto1.setText("");
+        txtsegundo1.setText("");
+        txtminuto2.setText("");
+        txtsegundos2.setText("");
+        txthora1.setEditable(true);
+        txthora2.setEditable(true);
+        txtminuto1.setEditable(true);
+        txtsegundo1.setEditable(true);
+        txtminuto2.setEditable(true);
+        txtsegundos2.setEditable(true);
+        txthora1.requestFocusInWindow();
     }//GEN-LAST:event_cmdlimpiarActionPerformed
 
-    
     /**
      * @param args the command line arguments
      */
