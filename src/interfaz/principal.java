@@ -27,21 +27,103 @@ public class principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txthora1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtminuto1 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtsegundo1 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txthora2 = new javax.swing.JTextField();
+        txtminuto2 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtsegundos2 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        cmdcomparar = new javax.swing.JButton();
+        cmdfijar = new javax.swing.JButton();
+        cmdvalidar = new javax.swing.JButton();
+        cmdlimpiar = new javax.swing.JButton();
+        cmdmostrar = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel1.setText("OPCIONES DE DOS HORAS");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 210, 40));
+
+        jLabel2.setText("Datos 2° Hora:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 80, 30));
+        jPanel1.add(txthora1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 50, 30));
+
+        jLabel3.setText("Hora:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 84, 40, 20));
+
+        jTextField2.setText("jTextField1");
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 50, 30));
+
+        jLabel4.setText("Hora:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 84, 40, 20));
+        jPanel1.add(txtminuto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 50, 30));
+
+        jLabel5.setText("Minutos:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 60, 30));
+        jPanel1.add(txtsegundo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 50, 30));
+
+        jLabel6.setText("Segundos:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 60, 30));
+
+        jLabel7.setText("Hora:");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 40, 30));
+
+        jLabel8.setText("Minutos:");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 60, 30));
+        jPanel1.add(txthora2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 50, 30));
+        jPanel1.add(txtminuto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 50, 30));
+
+        jLabel9.setText("Segundos:");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 60, 30));
+        jPanel1.add(txtsegundos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 50, 30));
+
+        jLabel10.setText("Datos 1° Hora:");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 44, 80, 30));
+
+        cmdcomparar.setText("Comparar");
+        jPanel1.add(cmdcomparar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 100, 30));
+
+        cmdfijar.setText("Fijar");
+        cmdfijar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdfijarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdfijar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 100, 30));
+
+        cmdvalidar.setText("Validar");
+        jPanel1.add(cmdvalidar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 100, 30));
+
+        cmdlimpiar.setText("Limpiar");
+        jPanel1.add(cmdlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 100, 30));
+
+        cmdmostrar.setText("Mostrar");
+        jPanel1.add(cmdmostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 100, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdfijarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdfijarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdfijarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +161,28 @@ public class principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdcomparar;
+    private javax.swing.JButton cmdfijar;
+    private javax.swing.JButton cmdlimpiar;
+    private javax.swing.JButton cmdmostrar;
+    private javax.swing.JButton cmdvalidar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txthora1;
+    private javax.swing.JTextField txthora2;
+    private javax.swing.JTextField txtminuto1;
+    private javax.swing.JTextField txtminuto2;
+    private javax.swing.JTextField txtsegundo1;
+    private javax.swing.JTextField txtsegundos2;
     // End of variables declaration//GEN-END:variables
 }

@@ -61,12 +61,13 @@ public class Hora {
         return res;
     }
 
-    public String MostrarHora(Hora hora2) {
+    public String MostrarHora() {
         String res;
         res ="La hora es:" +this.getHoras()+":"+"Los minutos son:"+this.getMinutos() +":"+"Los segundos son:"+ this.getSg();
         return res;
     }
 
+    
     public String HorasIguales(Hora hora2) {
         String res;
         if (this.getHoras() == hora2.getHoras() && this.getMinutos() == hora2.getMinutos() && this.getSg() == hora2.getSg()) {
