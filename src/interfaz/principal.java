@@ -5,6 +5,9 @@
  */
 package interfaz;
 
+import clases.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author user
@@ -14,6 +17,7 @@ public class principal extends javax.swing.JFrame {
     /**
      * Creates new form principal
      */
+   Hora H, Hora2;
     public principal() {
         initComponents();
     }
@@ -97,6 +101,11 @@ public class principal extends javax.swing.JFrame {
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 44, 80, 30));
 
         cmdcomparar.setText("Comparar");
+        cmdcomparar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdcompararActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdcomparar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 100, 30));
 
         cmdfijar.setText("Fijar");
@@ -108,12 +117,27 @@ public class principal extends javax.swing.JFrame {
         jPanel1.add(cmdfijar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 100, 30));
 
         cmdvalidar.setText("Validar");
+        cmdvalidar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdvalidarActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdvalidar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 100, 30));
 
         cmdlimpiar.setText("Limpiar");
+        cmdlimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdlimpiarActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 100, 30));
 
         cmdmostrar.setText("Mostrar");
+        cmdmostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdmostrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdmostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 100, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 390));
@@ -122,9 +146,75 @@ public class principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdfijarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdfijarActionPerformed
-        // TODO add your handling code here:
+        if (txthora1.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite la Hora #1", "error", JOptionPane.ERROR_MESSAGE);
+            txthora1.requestFocusInWindow();
+        } else if (txtminuto1.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite los minutos de la hora #1", "error", JOptionPane.ERROR_MESSAGE);
+            txtminuto1.requestFocusInWindow();
+        } else if (txtsegundo1.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite los segundos de la hora #1", "error", JOptionPane.ERROR_MESSAGE);
+            txtsegundo1.requestFocusInWindow();
+        } else if (txthora2.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite la Hora #2", "error", JOptionPane.ERROR_MESSAGE);
+            txthora2.requestFocusInWindow();
+        } else if (txtminuto2.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite los minutos de la hora #2", "error", JOptionPane.ERROR_MESSAGE);
+            txtminuto2.requestFocusInWindow();
+        } else if (txtsegundos2.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite los segundos de la hora #2", "error", JOptionPane.ERROR_MESSAGE);
+            txtsegundos2.requestFocusInWindow();
+        }else {
+            int h1, m1, s1, h2, m2, s2;
+            h1 = Integer.parseInt(txthora1.getText());
+            m1 = Integer.parseInt(txtminuto1.getText());
+            s1 = Integer.parseInt(txtsegundo1.getText());
+            h2 = Integer.parseInt(txthora2.getText());
+            m2 = Integer.parseInt(txtminuto2.getText());
+            s2 = Integer.parseInt(txtsegundos2.getText());
+            H = new Hora(h1, m1, s1);
+            Hora2 = new Hora(h2, m2, s2);
+            JOptionPane.showMessageDialog(this, "Horas establecidas");
+        }
     }//GEN-LAST:event_cmdfijarActionPerformed
 
+    private void cmdcompararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdcompararActionPerformed
+       String ress;
+        ress = H.CompararHoras(Hora2);
+        JOptionPane.showMessageDialog(this, ress);
+    }//GEN-LAST:event_cmdcompararActionPerformed
+
+    private void cmdmostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdmostrarActionPerformed
+       String Hora1, Hora3;
+        Hora1 = H.MostrarHora();
+        Hora3 = Hora2.MostrarHora();
+        JOptionPane.showMessageDialog(this,"La primera hora es: "+Hora1+"\nLa segunda hora es: "+Hora3);
+    }//GEN-LAST:event_cmdmostrarActionPerformed
+
+    private void cmdvalidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdvalidarActionPerformed
+      String Hora1, Hora3;
+        Hora1 = H.ValidarHoras();
+        Hora3= Hora2.ValidarHoras();
+        JOptionPane.showMessageDialog(this, "La Parimera hora es:"+ Hora1+"\nLa seguda hora es:" +Hora3);
+    }//GEN-LAST:event_cmdvalidarActionPerformed
+
+    private void cmdlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdlimpiarActionPerformed
+       txthora1.setText("");
+       txthora2.setText("");
+       txtminuto1.setText("");
+       txtsegundo1.setText("");
+       txtminuto2.setText("");
+       txtsegundos2.setText("");
+       txthora1.setEditable(true);
+       txthora2.setEditable(true);
+       txtminuto1.setEditable(true);
+       txtsegundo1.setEditable(true);
+       txtminuto2.setEditable(true);
+       txtsegundos2.setEditable(true);
+       txthora1.requestFocusInWindow();
+    }//GEN-LAST:event_cmdlimpiarActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
