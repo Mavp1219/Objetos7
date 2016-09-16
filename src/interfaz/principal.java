@@ -108,7 +108,7 @@ public class principal extends javax.swing.JFrame {
                 cmdcompararActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdcomparar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 100, 30));
+        jPanel1.add(cmdcomparar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 100, 30));
 
         cmdfijar.setText("Fijar");
         cmdfijar.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +140,7 @@ public class principal extends javax.swing.JFrame {
                 cmdmostrarActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdmostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 100, 30));
+        jPanel1.add(cmdmostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 100, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 390));
 
@@ -195,7 +195,7 @@ public class principal extends javax.swing.JFrame {
             txtminuto2.setText("");
             txtsegundos2.setText("");
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(this, "Error");
+            JOptionPane.showMessageDialog(this, "Elementos Vacios");
             txthora1.setText("");
             txthora2.setText("");
             txtminuto1.setText("");
@@ -221,7 +221,7 @@ public class principal extends javax.swing.JFrame {
             txtminuto2.setText("");
             txtsegundos2.setText("");
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(this, "Error");
+            JOptionPane.showMessageDialog(this, "Elementos Vacios");
             txthora1.requestFocusInWindow();
             txthora1.setText("");
             txthora2.setText("");
@@ -248,7 +248,7 @@ public class principal extends javax.swing.JFrame {
             txtminuto2.setText("");
             txtsegundos2.setText("");
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(this, "Error");
+            JOptionPane.showMessageDialog(this, "Elementos Vacios");
             txthora1.setText("");
             txthora2.setText("");
             txtminuto1.setText("");
@@ -264,7 +264,7 @@ public class principal extends javax.swing.JFrame {
             String Hora1, Hora3;
             Hora1 = H.ValidarHoras();
             Hora3 = Hora2.ValidarHoras();
-            JOptionPane.showMessageDialog(this, "La Parimera hora es:" + Hora1 + "\nLa seguda hora es:" + Hora3);
+            JOptionPane.showMessageDialog(this, "La Primera hora es:" + Hora1 + "\nLa segunda hora es:" + Hora3);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Error");
             txthora1.requestFocusInWindow();
